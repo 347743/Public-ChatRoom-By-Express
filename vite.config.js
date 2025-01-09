@@ -14,7 +14,7 @@ export default defineConfig({
             input:{
                 main:'./src/index.html',
                 profile:'./src/profile.html',
-                reset:'./src/rest.html',
+                reset:'./src/reset.html',
                 signin:'./src/signin.html',
                 signup:'./src/signup.html'
             }
