@@ -1,0 +1,178 @@
+// npm init or npm init -y
+// npm install firebase  or npm install firebase@latest
+// npm install express   or  npm install express@latest
+
+=> How to use Vite 
+1. install
+    npm install --save-dev vite@latest
+
+2.Create a new file vite.config.js file
+import { defineConfig } from "vite";
+
+export default defineConfig({
+    root:'./src',
+    sever:{
+        watch:{
+            usePolling: true
+        }
+    },
+    build:{
+        outDir:'../dist',//define the output directory, the output directory for to build files 
+    }
+});
+
+3.Update package.json
+"scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "type":"module"
+
+4.Run build the app for production
+    npm run build
+
+5.Run Vite in development sever
+    npm run dev
+
+----------------------------------
+
+=> How to install Tailwind Css
+
+1.Install tailwind css
+
+https://tailwindcss.com/docs/installation/using-postcss
+
+npm install -D tailwindcss postcss autoprefixer
+
+npx tailwindcss init (this create a tailwind.config.js file in to your project)
+
+
+2.Add tailwind to your PostCss configuration
+
+create postcss.config.js manulally (note :: dot not forgot to export as ES6)
+export default {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+
+3.Configure your template paths
+
+Add the paths to all of your template files in your tailwind.config.js file.
+/ @type {import('tailwindcss').Config} */
+export default {
+  content: ["./src//*.{html,js,jsx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
+
+
+4.Add the Tailwind directives to your CSS
+
+create a css file located to (eg. src/css/main.css)
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+5.Include css link to each html files
+<link href="" rel="stylesheet" />
+
+
+npm run build 
+npm run dev 
+
+
+---------------------------------------------------------------------------
+
+
+=> Enable email/password authentication 
+
+Make sure you have enable email/password authentication in your firebase console
+
+authentication > sign-in method 
+ensure email/password is enable 
+
+
+
+
+=> enable google sign-in in firebase console 
+
+enable google under the list of providers 
+
+public-facing name for project = your firebase project id
+support email for project = your firebase gmail address
+save the changes
+
+
+
+---------------------------------------------------------------------------
+
+=> customize the password reset email template 
+
+you can customize the password reset email link to redirected user to a specific page in your app.
+
+authentication > templates > password reset > click edit pen 
+
+----------------------------------------------------------------------------
+
+
+=> How to install date fns Css
+
+1.Install date-fns
+https://date-fns.org/docs/Getting-Started#installation
+
+npm install date-fns --save
+
+2.import in src/main.js or src/js/uielement.js and
+
+import{ format } from "date-fns";
+
+const formattedate = formate(new Date(createdtime),"do MMM yyyy");
+----------------------------------------------
+=> How to install fontawesome 6
+
+1.Install Font Awesome
+
+npm install @fortawesome/fontawesome-free
+
+2.import in src/main.js or src/js/uielement.js and src/js/app.js
+
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
+
+--------------------------------------------------------------------------------------------
+=> How to install Express
+1.Install Express
+
+npm install express or npm install express@latest
+
+nodemon sever.js
+ =>import
+ import express from 'express';
+
+----------------------------------------------
+
+=>Deploy on cloud Sever 
+
+1.your project need repo public/private to github 
+
+2.signin your account to https://render.com/
+
+3.prepare the build output 
+  your project must and typically located in the "dist" directory 
+
+4.Create a new static site 
+  click > "new + " static site > Github > your account > choose repo > click "Connect"
+
+5..Name : publicchatroom
+    Branch:main
+    Build Command : npm run build (React,Vue,vite,etc...),ng build ( Angular )
+
+6.Environment Variables = copy paste .env data to Environment Variables
